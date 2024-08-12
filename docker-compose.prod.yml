@@ -1,0 +1,32 @@
+
+services:
+  # NestJS Application Service
+  app:
+    container_name: nestjs-backend-main:latest
+    build: 
+      context: .
+    ports:
+      - '4300:4100'
+    # entrypoint: ./start.sh
+    env_file:
+      - ./.env
+    depends_on:
+      - redis
+
+  # PostgreSQL Service
+  # db:
+  #   image: postgres:16-alpine
+  #   container_name: bingo-prod-postgres-db
+  #   env_file:
+  #     - ./.env
+  #   ports:
+  #     - '5679:5432'
+  #   volumes:
+  #     - /var/lib/postgresql/data:/var/lib/postgres
+
+  # Redis Service
+  redis:
+    image: redis:7
+    container_name: redis-server
+    ports:
+      - '6377:6379'
