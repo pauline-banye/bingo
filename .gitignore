@@ -32,7 +32,7 @@ yarn-error.log
 /example_dist
 /example
 # tests
-# /test
+/test
 /benchmarks/memory
 /coverage
 /.nyc_output
